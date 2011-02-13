@@ -1,0 +1,10 @@
+<table>
+    <? foreach( $this->models as $model ) : ?>
+    <tr>
+        <td><a href="<?=$this->url(array(
+            'action' => 'join',
+            'model' => $model->getClassnameToReturn()
+        ));?>"><?=$model->getClassnameToReturn();?></a></td>
+    </tr>
+    <? endforeach; ?>
+</table>

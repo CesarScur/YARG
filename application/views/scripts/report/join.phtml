@@ -1,0 +1,19 @@
+<table>
+    <? if( $this->relations ) : ?>
+    <? foreach( $this->relations as $model ) : ?>
+    <tr>
+        <td><a href="<?=$this->url(array(
+            'action' => 'join',
+            'model' => $model->getClassnameToReturn()
+        ));?>"><?=$model->getClassnameToReturn();?></a></td>
+    </tr>
+    <? endforeach; ?>
+    <? else : ?>
+    <tr>
+        <td>No Relations Found!</td>
+    </tr>
+    <? endif; ?>
+</table>
+<a href="<?=$this->url(array(
+    'action' => 'field'
+)); ?>">Next ></a>

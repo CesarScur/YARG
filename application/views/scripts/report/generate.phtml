@@ -1,0 +1,15 @@
+<table border="1">
+    <tr>
+        <? foreach( (array) $this->columns as $column ) : ?>
+            <th><?=$column; ?></th>
+        <? endforeach; ?>
+    </tr>
+
+    <? foreach( $this->modelTable as $entry ) : ?>
+    <tr>
+        <? foreach( (array) $this->columns as $column ) : ?>
+            <td><?=$entry->$column; ?></td>
+        <? endforeach; ?>
+    </tr>
+    <? endforeach; ?>
+</table>
