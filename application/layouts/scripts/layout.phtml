@@ -1,0 +1,55 @@
+<?php echo $this->doctype(); ?>
+<html>
+    <head>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headTitle(); ?>
+	<?php echo $this->headLink(); ?>
+        <?php echo $this->dojo();?>
+        <?php echo $this->headScript()
+                        ->appendScript(
+                            'var hideLoader = function(){'
+                          . '    dojo.fadeOut({'
+                          . '        node:"preloader",'
+                          . '        onEnd: function(){'
+                          . '            dojo.style("preloader", "display", "none");'
+                          . '        }'
+                          . '    }).play();'
+                          . '};'
+                          . 'dojo.addOnLoad(function() {'
+                          . '    hideLoader();'
+                          . '});'
+                        );
+        ?>
+    </head>
+    <body class="claro">
+        <div id="preloader"></div>
+        <div id="body">
+            <header>
+                <div id="header">
+                    <div id="brand">
+                    </div>
+                    <div id="navigation">
+                        <?php echo $this->navigation()->menu();?>
+                    </div>
+                </div>
+            </header>
+            <content>
+                <div id="messenger">
+                    <?php echo $this->flashMessenger();?>
+                </div>
+                <div id="content">
+                    <?php echo $this->layout()->content; ?>
+                </div>
+                <div id="leftNavigation">
+                    <?php ;?>
+                </div>
+                <div id="rightNavigation">
+                    <?php ;?>
+                </div>
+            </content>
+            <footer>
+
+            </footer>
+        </div>
+    </body>
+</html>

@@ -1,10 +1,9 @@
-<table>
-    <? foreach( $this->models as $model ) : ?>
-    <tr>
-        <td><a href="<?=$this->url(array(
-            'action' => 'join',
-            'model' => $model->getClassnameToReturn()
-        ));?>"><?=$model->getClassnameToReturn();?></a></td>
-    </tr>
-    <? endforeach; ?>
-</table>
+<?php foreach( $this->reports as $report ): ?>
+<div>
+<a href="<?=$this->url(array(
+            'action' => 'generate',
+            'report' => $report->id
+        ));?>"><?php echo $report->name?></a>
+
+</div>
+<?php endforeach;?>

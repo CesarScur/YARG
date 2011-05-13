@@ -1,0 +1,28 @@
+driver://user:password@host/database
+<?php echo $this->form;?>
+
+<table>
+    <tr>
+        <th>Nome:</th>
+        <th>Driver:</th>
+        <th>Host:</th>
+        <th>Porta:</th>
+        <th>Usuário:</th>
+        <th>Senha:</th>
+        <th>Remover:</th>
+    </tr>
+<?php foreach( $this->connections as $conection ) : ?>
+    <tr>
+        <td><?php echo $conection->name ?></td>
+        <td><?php echo $conection->driver ?></td>
+        <td><?php echo $conection->host ?></td>
+        <td><?php echo $conection->port ?></td>
+        <td><?php echo $conection->user ?></td>
+        <td><?php echo $conection->pass ?></td>
+        <td><a href="<?php echo $this->url(array(
+            'action' => 'remove-connection',
+            'id' => $conection->id,
+        ))?>">Remover</a> </td>
+    </tr>
+<?php endforeach; ?>
+</table>

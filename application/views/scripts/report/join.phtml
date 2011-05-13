@@ -1,19 +1,19 @@
+<?=$this->form;?>
 <table>
-    <? if( $this->relations ) : ?>
-    <? foreach( $this->relations as $model ) : ?>
+    
+    <?php foreach( $this->report->ReportJoin as $join ): ?>
     <tr>
+        <td><?=$join->model?></td>
         <td><a href="<?=$this->url(array(
-            'action' => 'join',
-            'model' => $model->getClassnameToReturn()
-        ));?>"><?=$model->getClassnameToReturn();?></a></td>
+            'action' => 'remove-join',
+            'joinModel' => $join->id
+        ));?>">Remover</a></td>
     </tr>
-    <? endforeach; ?>
-    <? else : ?>
-    <tr>
-        <td>No Relations Found!</td>
-    </tr>
-    <? endif; ?>
+    <?php endforeach;?>
 </table>
-<a href="<?=$this->url(array(
-    'action' => 'field'
-)); ?>">Next ></a>
+
+<button dojoType="dijit.form.Button" label="Avançar">
+    <script type='dojo/method' event='onClick'>
+        dojo.doc.location.pathname = '/report/column';
+    </script>
+</button>

@@ -1,0 +1,23 @@
+/* 
+    Document   : style
+    Created on : Mar 12, 2011, 7:12:50 PM
+    Author     : Sugar
+    Description:
+        Main style app.
+*/
+
+#preloader {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #fff url('../js/dojo/1.5/dojox/image/resources/images/loading.gif') no-repeat center center;
+    position:absolute;
+    z-index:9999;
+}
+
+#body {
+    left: auto;
+    right: auto;
+    width: 980px;
+}

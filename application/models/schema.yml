@@ -1,0 +1,118 @@
+
+detect_relations: true
+
+Report:
+  connection: main
+  tableName: report
+  columns:
+    id:
+      type: integer(8)
+      notnull: false
+      primary: true
+      autoincrement: true
+    name:
+      type: text()
+      notnull: false
+    base_model:
+      name: base_model as baseModel
+      type: text()
+      notnull: false
+    unsaved:
+      type: boolean
+      notnull: true
+      default: true
+    last_exec:
+      name: last_exec as lastExec
+      type: date(25)
+      notnull: false
+    format:
+      type: text()
+      notnull: false
+  actAs: [SoftDelete, Timestampable]
+  relations:
+    ReportColumn:
+      local: id
+      foreign: reportId
+      type: many
+    ReportJoin:
+      local: id
+      foreign: reportId
+      type: many
+
+
+ReportColumn:
+  connection: main
+  tableName: report_column
+  columns:
+    id:
+      type: integer(8)
+      notnull: false
+      primary: true
+      autoincrement: true
+    column:
+      type: text()
+      notnull: true
+    report_id:
+      name: report_id as reportId
+      type: integer(8)
+      notnull: true
+  relations:
+    Report:
+      local: reportId
+      foreign: id
+      type: one
+
+ReportJoin:
+  connection: main
+  tableName: report_join
+  columns:
+    id:
+      type: integer(8)
+      notnull: false
+      primary: true
+      autoincrement: true
+    model:
+      type: text()
+      notnull: false
+    method:
+      type: text()
+      notnull: false
+    report_id:
+      name: report_is as reportId
+      type: integer(8)
+      notnull: true
+  relations:
+    Report:
+      local: reportId
+      foreign: id
+      type: one
+
+
+
+Connection:
+  connection: main
+  tableName: connection
+  columns:
+    id:
+      type: integer
+      notnull: false
+      primary: true
+      autoincrement: true
+    name:
+      type: string
+    driver:
+      type: string
+      notnull: false
+    host:
+      type: string
+    port:
+      type: integer
+    user:
+      type: string
+    pass:
+      type: string
+    database:
+      type: string
+
+
+

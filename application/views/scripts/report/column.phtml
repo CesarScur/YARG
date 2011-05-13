@@ -1,0 +1,19 @@
+<?=$this->form;?>
+
+<table>
+    <?php foreach( $this->report->ReportColumn as $reportColumn ): ?>
+    <tr>
+        <td><?=$reportColumn->column?></td>
+        <td><a href="<?=$this->url(array(
+            'action' => 'remove-column',
+            'column' => $reportColumn->id
+        ));?>">Remover</a></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+
+<button dojoType="dijit.form.Button" label="Salvar">
+    <script type='dojo/method' event='onClick'>
+        dojo.doc.location.pathname = '/report/save';
+    </script>
+</button>

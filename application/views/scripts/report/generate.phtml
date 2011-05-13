@@ -1,15 +1,46 @@
 <table border="1">
     <tr>
-        <? foreach( (array) $this->columns as $column ) : ?>
-            <th><?=$column; ?></th>
+        <? foreach( $this->columns as $column ) : ?>
+                <th><?=$column;?></th>
+        <? endforeach; ?>
+    </tr>
+
+    <? foreach( $this->data as $row ) : ?>
+    <tr>
+        <? foreach( $row as $rowCol ) : ?>
+            <td><?=$rowCol; ?></td>
+        <? endforeach; ?>
+    </tr>
+    <? endforeach; ?>
+</table>
+
+
+
+
+<?php
+/*
+<table border="1">
+    <tr>
+        <? foreach( (array) $this->models as $modelName => $modelFields ) : ?>
+            <? foreach( (array) $modelFields as $fieldName ) : ?>
+                <th><?=$modelName . '.' . $fieldName; ?></th>
+            <? endforeach; ?>
         <? endforeach; ?>
     </tr>
 
     <? foreach( $this->modelTable as $entry ) : ?>
     <tr>
-        <? foreach( (array) $this->columns as $column ) : ?>
-            <td><?=$entry->$column; ?></td>
+        <? foreach( (array) $this->models as $modelName => $modelFields ) : ?>
+            <? foreach( (array) $modelFields as $fieldName ) : ?>
+                <? if( $this->baseModel == $modelName ) : ?>
+                    <td><?=$entry->$fieldName; ?></td>
+                <? else : ?>
+                    <td><?=$entry->$modelName->$fieldName; ?></td>
+                <? endif; ?>
+
+            <? endforeach; ?>
         <? endforeach; ?>
     </tr>
     <? endforeach; ?>
 </table>
+*/

@@ -1,0 +1,24 @@
+reports:
+  label: Reports
+  controller: report
+  pages:
+    create:
+      label: Criar novo report
+      controller: report
+      action: create
+config:
+  label: Configurações
+  controller: config
+  pages:
+    auth:
+      label: Autenticação
+      controller: config
+      action: auth
+    connection:
+      label: Conexões de BD
+      controller: config
+      action: connection
+    loadModels:
+      label: Carregar models da Conexão
+      controller: config
+      action: load-models
