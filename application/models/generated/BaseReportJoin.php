@@ -40,7 +40,7 @@ abstract class BaseReportJoin extends Doctrine_Record
              'notnull' => false,
              'length' => '',
              ));
-        $this->hasColumn('report_is as reportId', 'integer', 8, array(
+        $this->hasColumn('report_id as reportId', 'integer', 8, array(
              'type' => 'integer',
              'notnull' => true,
              'length' => '8',

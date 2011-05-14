@@ -26,10 +26,15 @@
           <actionMethod actionName="loadModels"/>
           <actionMethod actionName="removeConnection"/>
         </controllerFile>
+        <controllerFile controllerName="Schedule">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="add"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
         <formFile formName="Join"/>
         <formFile formName="Field"/>
+        <formFile formName="Schedule"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory/>
@@ -74,6 +79,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Config">
             <viewScriptFile forActionName="removeConnection"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Schedule">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Schedule">
+            <viewScriptFile forActionName="add"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

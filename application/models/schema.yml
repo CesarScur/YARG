@@ -78,7 +78,7 @@ ReportJoin:
       type: text()
       notnull: false
     report_id:
-      name: report_is as reportId
+      name: report_id as reportId
       type: integer(8)
       notnull: true
   relations:
@@ -113,6 +113,43 @@ Connection:
       type: string
     database:
       type: string
+
+
+Schedule:
+  connection: main
+  tableName: schedule
+  columns:
+    id:
+      type: integer
+      notnull: false
+      primary: true
+      autoincrement: true
+    name:
+      type: string
+      notnull: false
+    minute:
+      type: string
+    hour:
+      type: string
+    day:
+      type: string
+    month:
+      type: string
+    year:
+      type: string
+    weekday:
+      type: string
+    report_id:
+      type: integer
+      name: report_id as reportId
+
+
+
+
+      
+
+
+
 
 
 
