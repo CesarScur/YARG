@@ -10,11 +10,7 @@ class ScheduleController extends Zend_Controller_Action
 
     public function indexAction()
     {
-
-    }
-
-    public function addAction()
-    {
+        $schedules = Doctrine::getTable('Schedule')->findAll();
         $form = new Application_Form_Schedule();
         $request = $this->getRequest();
 
@@ -29,10 +25,20 @@ class ScheduleController extends Zend_Controller_Action
             }
         }
 
-        $this->view->form = $form;    }
+        $this->view->form = $form;
+        $this->view->schedules = $schedules;
+
+    }
+
+    public function removeAction()
+    {
+        // action body
+    }
 
 
 }
+
+
 
 
 

@@ -10,11 +10,6 @@ reports:
       label: Agenda de Reports
       controller: schedule
       action: index
-      pages:
-        add:
-          label: Adicionar Novo Agendamento
-          controller: schedule
-          action: add
 config:
   label: Configurações
   controller: config

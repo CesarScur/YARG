@@ -13,4 +13,16 @@
 class Report extends BaseReport
 {
 
+    /**
+     *
+     * @return Doctrine_Collection
+     */
+    static function getReports()
+    {
+        /**
+         * @TODO: add user filtering
+         */
+        return Doctrine::getTable('Report')->findAll();
+    }
+
 }

@@ -16,6 +16,8 @@ Doctrine_Manager::getInstance()->bindComponent('Schedule', 'main');
  * @property string $year
  * @property string $weekday
  * @property integer $reportId
+ * @property string $method
+ * @property Doctrine_Collection $Report
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -58,11 +60,16 @@ abstract class BaseSchedule extends Doctrine_Record
         $this->hasColumn('report_id as reportId', 'integer', null, array(
              'type' => 'integer',
              ));
+        $this->hasColumn('method', 'string', null, array(
+             'type' => 'string',
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        
+        $this->hasMany('Report', array(
+             'local' => 'reportId',
+             'foreign' => 'id'));
     }
 }

@@ -7,7 +7,15 @@ class Application_Form_Schedule extends Zend_Dojo_Form
     {
         $this->setMethod('post');
 
-        $this->setAttrib('class', 'linear_form');
+
+        $this->addElement('textBox', 'name', array(
+            'label' => 'Nome',
+        ));
+
+        $this->addElement('filteringSelect', 'report_id', array(
+           'label' => 'Report',
+            'multiOptions' => Report::getReports()->toKeyValueArray('id', 'name'),
+        ));
 
         $this->addElement(new Zend_Dojo_Form_Element_ValidationTextBox('minute', array(
             'label' => 'Minutos',
@@ -51,8 +59,8 @@ class Application_Form_Schedule extends Zend_Dojo_Form
                 'email' => 'email'
             ),
             'required' => true,
-
         ));
+
 
         $this->addElement(new Zend_Dojo_Form_Element_SubmitButton('submit', array(
             'label' => 'Agendar',

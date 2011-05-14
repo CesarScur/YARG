@@ -142,6 +142,13 @@ Schedule:
     report_id:
       type: integer
       name: report_id as reportId
+    method:
+      type: string
+  relations:
+    Report:
+      local: reportId
+      foreign: id
+      type: many
 
 
 

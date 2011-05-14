@@ -15,6 +15,7 @@ Doctrine_Manager::getInstance()->bindComponent('Report', 'main');
  * @property text $format
  * @property Doctrine_Collection $ReportColumn
  * @property Doctrine_Collection $ReportJoin
+ * @property Schedule $Schedule
  * 
  * @package    ##PACKAGE##
  * @subpackage ##SUBPACKAGE##
@@ -68,6 +69,10 @@ abstract class BaseReport extends Doctrine_Record
              'foreign' => 'reportId'));
 
         $this->hasMany('ReportJoin', array(
+             'local' => 'id',
+             'foreign' => 'reportId'));
+
+        $this->hasOne('Schedule', array(
              'local' => 'id',
              'foreign' => 'reportId'));
 

@@ -13,4 +13,19 @@
 class Schedule extends BaseSchedule
 {
 
+    /**
+     * Return a cron like string (* * * * * *)
+     * @return string 
+     */
+    public function getPeriod()
+    {
+        $period = "{$this->minute} "
+                . "{$this->hour} "
+                . "{$this->day} "
+                . "{$this->month} "
+                . "{$this->year} "
+                . "{$this->weekday} ";
+                
+      return $period;
+    }
 }

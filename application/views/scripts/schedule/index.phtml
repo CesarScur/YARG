@@ -1,1 +1,23 @@
-index
+<?php echo $this->form; ?>
+
+<table>
+    <tr>
+        <th>Nome:</th>
+        <th>Report:</th>
+        <th>Período:</th>
+        <th>Metodo:</th>
+        <th>Remover:</th>
+    </tr>
+<?php foreach( $this->schedules as $schedule ) : ?>
+    <tr>
+        <td><?php echo $schedule->name ?></td>
+        <td><?php echo $schedule->Report->name ?></td>
+        <td><?php echo $schedule->getPeriod() ?></td>
+        <td><?php echo $schedule->method ?></td>
+        <td><a href="<?php echo $this->url(array(
+            'action' => 'remove',
+            'id' => $schedule->id,
+        ))?>">Remover</a> </td>
+    </tr>
+<?php endforeach; ?>
+</table>
