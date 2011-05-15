@@ -32,7 +32,16 @@ class ScheduleController extends Zend_Controller_Action
 
     public function removeAction()
     {
-        // action body
+        $id = $this->getRequest()->getParam('id');
+        $schedule = Schedule::find($id);
+        if( $schedule ) {
+            $schedule->delete();
+            Yarg_FlashMessenger::addMessage('Agendamento removido!');
+        } else {
+            Yarg_FlashMessenger::addMessage('O agendamento não existe!',
+                Yarg_FlashMessenger::ERROR);
+        }
+        $this->_redirect('/schedule');
     }
 
 

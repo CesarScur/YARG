@@ -14,6 +14,11 @@ class Schedule extends BaseSchedule
 {
 
     /**
+     * @var string
+     */
+    static protected $_tableName = "Schedule";
+
+    /**
      * Return a cron like string (* * * * * *)
      * @return string 
      */
@@ -28,4 +33,22 @@ class Schedule extends BaseSchedule
                 
       return $period;
     }
+
+    /**
+     * Return a schedule
+     * @param integer $id
+     * @return Schedule
+     */
+    static function find($id)
+    {
+        //@TODO limitate to own schedules
+        $schedule = Doctrine_Query::create()
+                        ->from(self::$_tableName)
+                        ->where('id = ?', array($id))
+                        ->execute();
+
+        return $schedule;
+    }
+
+
 }

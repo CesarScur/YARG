@@ -26,6 +26,7 @@ Doctrine_Manager::getInstance()->bindComponent('Schedule', 'main');
  */
 abstract class BaseSchedule extends Doctrine_Record
 {
+    
     public function setTableDefinition()
     {
         $this->setTableName('schedule');
